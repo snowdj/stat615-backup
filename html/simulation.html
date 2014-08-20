@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Sheri data simulatoin analysis</title>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<style type="text/css">
+body {
+   font-family: Helvetica, arial, sans-serif;
+   font-size: 14px;
+   line-height: 1.6;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   background-color: white;
+   padding: 30px; }
+
+body > *:first-child {
+   margin-top: 0 !important; }
+body > *:last-child {
+   margin-bottom: 0 !important; }
+
+a {
+   color: #4183C4; }
+a.absent {
+   color: #cc0000; }
+a.anchor {
+   display: block;
+   padding-left: 30px;
+   margin-left: -30px;
+   cursor: pointer;
+   position: absolute;
+   top: 0;
+   left: 0;
+   bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+   margin: 20px 0 10px;
+   padding: 0;
+   font-weight: bold;
+   -webkit-font-smoothing: antialiased;
+   cursor: text;
+   position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+   text-decoration: none; }
+
+h1 tt, h1 code {
+   font-size: inherit; }
+
+h2 tt, h2 code {
+   font-size: inherit; }
+
+h3 tt, h3 code {
+   font-size: inherit; }
+
+h4 tt, h4 code {
+   font-size: inherit; }
+
+h5 tt, h5 code {
+   font-size: inherit; }
+
+h6 tt, h6 code {
+   font-size: inherit; }
+
+h1 {
+   font-size: 28px;
+   color: black; }
+
+h2 {
+   font-size: 24px;
+   border-bottom: 1px solid #cccccc;
+   color: black; }
+
+h3 {
+   font-size: 18px; }
+
+h4 {
+   font-size: 16px; }
+
+h5 {
+   font-size: 14px; }
+
+h6 {
+   color: #777777;
+   font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+   margin: 15px 0; }
+
+hr {
+   border: 0 none;
+   color: #cccccc;
+   height: 4px;
+   padding: 0;
+}
+
+body > h2:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+body > h1:first-child + h2 {
+   margin-top: 0;
+   padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+   margin-top: 0;
+   padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+   margin-top: 0;
+   padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+   margin-top: 0; }
+
+li p.first {
+   display: inline-block; }
+li {
+   margin: 0; }
+ul, ol {
+   padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+   margin-top: 0; }
+
+dl {
+   padding: 0; }
+dl dt {
+   font-size: 14px;
+   font-weight: bold;
+   font-style: italic;
+   padding: 0;
+   margin: 15px 0 5px; }
+dl dt:first-child {
+   padding: 0; }
+dl dt > :first-child {
+   margin-top: 0; }
+dl dt > :last-child {
+   margin-bottom: 0; }
+dl dd {
+   margin: 0 0 15px;
+   padding: 0 15px; }
+dl dd > :first-child {
+   margin-top: 0; }
+dl dd > :last-child {
+   margin-bottom: 0; }
+
+blockquote {
+   border-left: 4px solid #dddddd;
+   padding: 0 15px;
+   color: #777777; }
+blockquote > :first-child {
+   margin-top: 0; }
+blockquote > :last-child {
+   margin-bottom: 0; }
+
+table {
+   padding: 0;border-collapse: collapse; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+
+img {
+   max-width: 100%; }
+
+span.frame {
+   display: block;
+   overflow: hidden; }
+span.frame > span {
+   border: 1px solid #dddddd;
+   display: block;
+   float: left;
+   overflow: hidden;
+   margin: 13px 0 0;
+   padding: 7px;
+   width: auto; }
+span.frame span img {
+   display: block;
+   float: left; }
+span.frame span span {
+   clear: both;
+   color: #333333;
+   display: block;
+   padding: 5px 0 0; }
+span.align-center {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-center > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: center; }
+span.align-center span img {
+   margin: 0 auto;
+   text-align: center; }
+span.align-right {
+   display: block;
+   overflow: hidden;
+   clear: both; }
+span.align-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px 0 0;
+   text-align: right; }
+span.align-right span img {
+   margin: 0;
+   text-align: right; }
+span.float-left {
+   display: block;
+   margin-right: 13px;
+   overflow: hidden;
+   float: left; }
+span.float-left span {
+   margin: 13px 0 0; }
+span.float-right {
+   display: block;
+   margin-left: 13px;
+   overflow: hidden;
+   float: right; }
+span.float-right > span {
+   display: block;
+   overflow: hidden;
+   margin: 13px auto 0;
+   text-align: right; }
+
+code, tt {
+   margin: 0 2px;
+   padding: 0 5px;
+   white-space: nowrap;
+   border: 1px solid #eaeaea;
+   background-color: #f8f8f8;
+   border-radius: 3px; }
+
+pre code {
+   margin: 0;
+   padding: 0;
+   white-space: pre;
+   border: none;
+   background: transparent; }
+
+.highlight pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+
+pre {
+   background-color: #f8f8f8;
+   border: 1px solid #cccccc;
+   font-size: 13px;
+   line-height: 19px;
+   overflow: auto;
+   padding: 6px 10px;
+   border-radius: 3px; }
+pre code, pre tt {
+   background-color: transparent;
+   border: none; }
+
+sup {
+   font-size: 0.83em;
+   vertical-align: super;
+   line-height: 0;
+}
+* {
+	 -webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+   body {
+      width: 854px;
+      margin:0 auto;
+   }
+}
+@media print {
+	 table, pre {
+		  page-break-inside: avoid;
+	 }
+	 pre {
+		  word-wrap: break-word;
+	 }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h1>Sheri data simulatoin analysis</h1>
+
+<h2>set working directory</h2>
+
+<pre><code class="r">setwd(&quot;E:\\Dropbox\\book\\economics\\485\\projects\\sheri&quot;)
+</code></pre>
+
+<h2>Load data from yield 01 which is FortyMiles</h2>
+
+<pre><code class="r">yield &lt;- read.table(&quot;yield01.csv&quot; , skip =0,  header = T, sep = &quot;,&quot;, stringsAsFactors=FALSE)
+
+
+subsetMunicipality = &quot;FortyMile&quot;
+
+str(yield)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    36 obs. of  6 variables:
+##  $ Crop.Year: int  1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 ...
+##  $ Barley   : num  50.8 32.8 46 49.6 42.5 ...
+##  $ Canola   : num  NA NA NA NA NA ...
+##  $ Durum    : num  NA NA 28.4 32.4 28.3 ...
+##  $ Peas     : num  NA NA NA NA NA NA NA NA NA NA ...
+##  $ Wheat    : num  32.2 18.9 27.5 31.7 30.4 ...
+</code></pre>
+
+<h2>Detrand yield and get varibility (standard deviation) of yield for simulation</h2>
+
+<p>Method is from </p>
+
+<ul>
+<li><a href="http://robjhyndman.com/hyndsight/tscharacteristics/">Decompose the data into trend components</a></li>
+</ul>
+
+<pre><code class="r">library(forecast)
+
+#source(&quot;decomp.r&quot;)
+# str(yield)
+# yield
+# ts(yield$Barley)
+#decompose(yield$Barley)
+#fitDereand &lt;- stl(yield$Barley, s.window= &quot;periodic&quot;)
+
+
+
+# remainder is the detrend data
+#sdDtrend &lt;- function(x) sd(decomp(x, FALSE)$remainder)
+
+#sdDtrend1 &lt;- function(x) sd(decompose(x, FALSE)$remainder)
+
+
+
+
+## detrend yields data from full data set . delete the data with NA data.
+yield1997 &lt;- subset(yield, Crop.Year&gt;1996)
+detrendYield&lt;-apply(yield1997[,-1],2, function(x) decomp(x, FALSE)$remainder)
+</code></pre>
+
+<h2>Calculate the covariance matrix</h2>
+
+<pre><code class="r">covDetrendYield &lt;-cov(detrendYield)
+covDetrendYield
+</code></pre>
+
+<pre><code>##           Barley    Canola    Durum     Peas     Wheat
+## Barley 27.119420  9.359685 26.64500 30.23422 15.307117
+## Canola  9.359685 16.966803 17.26439 14.60098  5.556236
+## Durum  26.644999 17.264393 48.76749 57.24628 15.717698
+## Peas   30.234220 14.600977 57.24628 77.74708 16.765585
+## Wheat  15.307117  5.556236 15.71770 16.76559 10.012012
+</code></pre>
+
+<pre><code class="r">#corDetrendYield&lt;-cor(detrendYield)
+#corDetrendYield
+# with the NA in different cell, row , we need to deal with NA data.
+sdDetreandYield &lt;- apply(detrendYield,2, function(x) sdDtrend(x))
+</code></pre>
+
+<pre><code>## Error: could not find function &quot;sdDtrend&quot;
+</code></pre>
+
+<pre><code class="r">#sdyld &lt;- NA
+
+
+# print(xtable(t(as.data.frame(sdyld)),caption=&quot;Detrended Standard Deviation&quot;),  type = &quot;html&quot;, include.rownames = FALSE)
+write.table(detrendYield, &quot;detrendYield.csv&quot;)
+write.table(sdDetreandYield, &quot;sdDetreandYield.csv&quot;)
+</code></pre>
+
+<pre><code>## Error: object &#39;sdDetreandYield&#39; not found
+</code></pre>
+
+<pre><code class="r">write.table(corDetrendYield, &quot;corDetrendYield.csv&quot;)
+</code></pre>
+
+<pre><code>## Error: object &#39;corDetrendYield&#39; not found
+</code></pre>
+
+<h2>Load the mean of the yield</h2>
+
+<pre><code class="r">meanYield &lt;- read.csv(&quot;meanYield.csv&quot;, )
+
+meanYield &lt;- subset(meanYield, Municipality == subsetMunicipality)
+</code></pre>
+
+<h2>Simulation 1000 for the yields based on</h2>
+
+<p><a href="http://www.r-bloggers.com/simulating-data-following-a-given-covariance-structure/">Simulating data following a given covariance structure</a></p>
+
+<pre><code class="r">library(lattice) # for splom
+library(car)     # for vif
+
+# number of observations to simulate
+nobs = 1000
+
+
+
+# Using a correlation matrix (let&#39; assume that all variables
+# have unit variance
+M = corDetrendYield
+</code></pre>
+
+<pre><code>## Error: object &#39;corDetrendYield&#39; not found
+</code></pre>
+
+<pre><code class="r">M = covDetrendYield
+
+
+# Cholesky decomposition
+L = chol(M)
+nvars = dim(L)[1]
+
+# R chol function produces an upper triangular version of L
+# so we have to transpose it.
+# Just to be sure we can have a look at t(L) and the
+# product of the Cholesky decomposition by itself
+
+t(L)
+</code></pre>
+
+<pre><code>##          Barley     Canola    Durum       Peas  Wheat
+## Barley 5.207631 0.00000000 0.000000  0.0000000 0.0000
+## Canola 1.797302 3.70627959 0.000000  0.0000000 0.0000
+## Durum  5.116530 2.17696589 4.224859  0.0000000 0.0000
+## Peas   5.805753 1.12411525 5.939562  2.7382987 0.0000
+## Wheat  2.939363 0.07374338 0.122566 -0.4055491 1.0896
+</code></pre>
+
+<pre><code class="r">t(L) %*% L
+</code></pre>
+
+<pre><code>##           Barley    Canola    Durum     Peas     Wheat
+## Barley 27.119420  9.359685 26.64500 30.23422 15.307117
+## Canola  9.359685 16.966803 17.26439 14.60098  5.556236
+## Durum  26.644999 17.264393 48.76749 57.24628 15.717698
+## Peas   30.234220 14.600977 57.24628 77.74708 16.765585
+## Wheat  15.307117  5.556236 15.71770 16.76559 10.012012
+</code></pre>
+
+<p>rdata is ready for simulation with the mean and sd.</p>
+
+<pre><code class="r">set.seed(143) #Set the random number seed to allow us to repeat results (must be integer)
+
+
+# Random variable from crops mean and 
+
+
+
+
+#matrixYieldSimulated = matrix(c(rnorm(nvars*nobs), ), nrow=nvars, ncol=nobs)
+
+# Random variables that follow an M correlation matrix, 
+r = t(L) %*% matrix(rnorm(nvars*nobs), nrow=nvars, ncol=nobs)
+r = t(r)
+
+
+## Add mean to the matrix
+
+# or matrix(... byrow= T)
+r = r + t(matrix(rep(meanYield$meanYieldRegionOlympicConverted, nobs), ncol=nobs))
+
+
+rdata = as.data.frame(r)
+names(rdata)
+</code></pre>
+
+<pre><code>## [1] &quot;Barley&quot; &quot;Canola&quot; &quot;Durum&quot;  &quot;Peas&quot;   &quot;Wheat&quot;
+</code></pre>
+
+<pre><code class="r"># Plotting and basic stats
+splom(rdata)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<pre><code class="r">cov(rdata)
+</code></pre>
+
+<pre><code>##           Barley    Canola    Durum     Peas     Wheat
+## Barley 24.655252  8.983635 24.69509 28.08011 13.896662
+## Canola  8.983635 16.315507 15.97093 13.46394  5.186813
+## Durum  24.695090 15.970933 44.77164 52.41808 14.401988
+## Peas   28.080114 13.463935 52.41808 70.96628 15.512884
+## Wheat  13.896662  5.186813 14.40199 15.51288  9.096277
+</code></pre>
+
+<pre><code class="r">cor(rdata)
+</code></pre>
+
+<pre><code>##           Barley    Canola     Durum      Peas     Wheat
+## Barley 1.0000000 0.4479165 0.7432833 0.6713023 0.9279486
+## Canola 0.4479165 1.0000000 0.5909198 0.3956815 0.4257635
+## Durum  0.7432833 0.5909198 1.0000000 0.9299371 0.7136563
+## Peas   0.6713023 0.3956815 0.9299371 1.0000000 0.6105689
+## Wheat  0.9279486 0.4257635 0.7136563 0.6105689 1.0000000
+</code></pre>
+
+<pre><code class="r"># We are not that far from what we want to simulate!
+
+head(rdata)
+</code></pre>
+
+<pre><code>##     Barley   Canola    Durum     Peas    Wheat
+## 1 67.23468 44.88336 51.74598 38.57649 49.69005
+## 2 58.10065 45.65925 55.91824 42.91867 45.44636
+## 3 63.71500 45.51898 52.62714 44.11384 46.42476
+## 4 52.96774 30.43134 42.26237 37.70667 40.65980
+## 5 56.18855 33.13457 44.88393 35.75823 41.97801
+## 6 70.41794 38.92241 61.06970 58.05929 52.60466
+</code></pre>
+
+<pre><code class="r">#
+write.table(rdata, &quot;yldSimulation.csv&quot;, sep =&quot;,&quot;)
+</code></pre>
+
+<p>Old approach stuff</p>
+
+<pre><code class="r"># simnum=1000
+# crops=5        
+# simYld &lt;- array(0, dim=c(simnum, crops))
+# 
+# 
+# # yield random 
+# for (i in 1:simnum) {
+#         simYld[i,] &lt;- rnorm(crops, meanyld, sdyld)
+# }
+# simYld&lt;-as.data.frame(simYld)
+# names(simYld)&lt;-names(yield)[-1]
+# write.table(simYld,&quot;simYld.csv&quot;, col.names = TRUE,row.names = FALSE, sep=&quot;,&quot;, )
+</code></pre>
+
+<h2>read data</h2>
+
+<pre><code class="r">#setwd(&quot;E:/Dropbox/book/economics/485/projects/sheri&quot;)
+#getwd()
+price&lt;-read.csv(&quot;price08.csv&quot;,head=T, sep=&quot;,&quot;, stringsAsFactors=FALSE)
+summary(price)
+</code></pre>
+
+<pre><code>##      date               Wheat           Durum            Barley     
+##  Length:75          Min.   :4.830   Min.   : 4.127   Min.   :2.768  
+##  Class :character   1st Qu.:6.170   1st Qu.: 5.966   1st Qu.:3.272  
+##  Mode  :character   Median :6.549   Median : 7.625   Median :4.027  
+##                     Mean   :6.671   Mean   : 7.306   Mean   :4.041  
+##                     3rd Qu.:7.468   3rd Qu.: 8.013   3rd Qu.:4.511  
+##                     Max.   :8.867   Max.   :13.139   Max.   :6.616  
+##      Canola            Peas      
+##  Min.   : 8.757   Min.   :4.654  
+##  1st Qu.:10.078   1st Qu.:6.221  
+##  Median :11.462   Median :7.800  
+##  Mean   :11.359   Mean   :7.420  
+##  3rd Qu.:12.644   3rd Qu.:8.654  
+##  Max.   :14.530   Max.   :9.525
+</code></pre>
+
+<pre><code class="r">str(price)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    75 obs. of  6 variables:
+##  $ date  : chr  &quot;Jan-08&quot; &quot;Feb-08&quot; &quot;Mar-08&quot; &quot;Apr-08&quot; ...
+##  $ Wheat : num  8.87 8.77 8.51 8.51 8.44 ...
+##  $ Durum : num  12.7 13.1 12.5 11.4 12.5 ...
+##  $ Barley: num  4.11 4.19 4.25 4.41 4.61 ...
+##  $ Canola: num  9.79 10.68 11.15 11.64 11.96 ...
+##  $ Peas  : num  7.89 8.44 9.25 9.39 9.53 ...
+</code></pre>
+
+<pre><code class="r">library(zoo)
+# set the date format, &quot;zoo&quot; support the yearnon format, but as.Date not.
+#price[, 1] &lt;- as.yearmon(price[, 1], format = &quot;%b-%y&quot;)
+# add day  to the date to use the as.Date fn
+price[, 1] &lt;- as.Date(x=paste(&quot;1-&quot;,price[, 1], sep=&quot;&quot;), format=&quot;%d-%b-%y&quot;)
+
+head(price)
+</code></pre>
+
+<pre><code>##         date Wheat  Durum Barley Canola  Peas
+## 1 2008-01-01 8.867 12.662  4.112  9.794 7.892
+## 2 2008-02-01 8.773 13.139  4.194 10.683 8.437
+## 3 2008-03-01 8.513 12.547  4.247 11.153 9.253
+## 4 2008-04-01 8.509 11.409  4.411 11.640 9.389
+## 5 2008-05-01 8.436 12.542  4.608 11.957 9.525
+## 6 2008-06-01 8.503 12.483  4.638 12.789 9.253
+</code></pre>
+
+<h2>Fit ou model for price</h2>
+
+<h2>OU</h2>
+
+<p>a Brownian motion is usually formulated as 
+<a href="http://renkun.me/blog/r/2014/04/05/fit-an-ou-process-with-realized-time-series-data.html">Kun Ren</a></p>
+
+<p>\[dx_t = \mu\,dt+\sigma\,dW_t\]</p>
+
+<p>which is the continuous case of a random walk. In some cases, it is quite convenient to use this formulation to describe the characteristic of asset prices due to its highly unpredictable behavior.</p>
+
+<p>exhibit such stationary mean-reverting behavior
+Ornstein-Uhlenbeck process. It is often used to characterize stationary mean-reverting data-generating process like 
+\[dx_t = \theta (\mu-x_t)\,dt + \sigma\, dW_t\]</p>
+
+<p>where xt denotes the the value of the portfolio, often called the spread, ?? and ?? are two parameters to capture the magnitude of the mean-reverting force, and ?? is a parameter to capture the diverting volatility.</p>
+
+<p>In R, a package named {sde} provides functions to deal with a wide range of stochasic differential equations including the discrete version of Ornstein-Uhlenbeck process.</p>
+
+<p>{sde} package offers a much more general one. sde.sim is a function to simulate any stochastic differential equation in the form </p>
+
+<p>\[dx_t = \mu(x_t,t)\,dt + \sigma(x_t,t)\, dW_t\]</p>
+
+<p>we simulate a spread process generated by an OU-process formulated by</p>
+
+<p>\[dx_t = (0-0.5x)\,dt + 0.8\, dW_t\]</p>
+
+<pre><code class="r"># function for Calibration using Maximum Likelihood estimates
+ouFit.ML = function(spread) {
+    n = length(spread)
+    delta = 1  # delta
+    Sx = sum(spread[1:n - 1])
+    Sy = sum(spread[2:n])
+    Sxx = sum((spread[1:n - 1])^2)
+    Syy = sum((spread[2:n])^2)
+    Sxy = sum((spread[1:n - 1]) * (spread[2:n]))
+    mu = (Sy * Sxx - Sx * Sxy)/((n - 1) * (Sxx - Sxy) - (Sx^2 - Sx * Sy))
+    theta = -log((Sxy - mu * Sx - mu * Sy + (n - 1) * mu^2)/(Sxx - 2 * mu * Sx + (n - 1) * mu^2))/delta
+    a = exp(-theta * delta)
+    sigmah2 = (Syy - 2 * a * Sxy + a^2 * Sxx - 2 * mu * (1 - a) * (Sy - a * Sx) + (n - 1) * mu^2 * (1 - a)^2)/(n - 1)
+    sigma = sqrt((sigmah2) * 2 * theta/(1 - a^2))
+    theta = list(theta = theta, mu = mu, sigma = sigma, sigmah2 = sigmah2)
+    return(theta)
+}
+</code></pre>
+
+<h3>Generate all parameter for all crop price</h3>
+
+<pre><code class="r">paraPrLi &lt;- apply( price[,-1] ,2,function(x) ouFit.ML(x))
+#str(paraMat)
+#str(paraMat[1])
+# unlist a list with lists as element and transfor to matrix
+paraPrMat &lt;- matrix(unlist(paraPrLi), ncol = 5, byrow = F )
+#output
+
+dfparaPrMat&lt;-as.data.frame(paraPrMat)
+names(dfparaPrMat)&lt;-names(price)[-1]
+row.names(dfparaPrMat)&lt;-c(&quot;theta&quot;, &quot;mu&quot;, &quot;sigma&quot;, &quot;sigmah2&quot;)
+dfparaPrMat
+</code></pre>
+
+<pre><code>##              Wheat      Durum     Barley      Canola       Peas
+## theta   0.06570700 0.08732267 0.04176114  0.04122139 0.03129221
+## mu      6.06791672 6.15687548 3.86530538 11.41694522 6.89601886
+## sigma   0.28448286 0.68413805 0.25984705  0.44108602 0.35125333
+## sigmah2 0.07583828 0.42945289 0.06477765  0.18675290 0.11959740
+</code></pre>
+
+<pre><code class="r">write.table(dfparaPrMat,&quot;paraPrMat.csv&quot;, col.names = TRUE,row.names = T, sep=&quot;,&quot;, )
+</code></pre>
+
+<h2># actual price summary</h2>
+
+<pre><code class="r"># mean
+apply(price[,-1], 2, mean)
+</code></pre>
+
+<pre><code>##     Wheat     Durum    Barley    Canola      Peas 
+##  6.671053  7.306347  4.041493 11.359187  7.420200
+</code></pre>
+
+<pre><code class="r"># sd 
+apply(price[,-1], 2, sd)
+</code></pre>
+
+<pre><code>##     Wheat     Durum    Barley    Canola      Peas 
+## 1.0517899 2.2062752 0.8790107 1.5646912 1.3797000
+</code></pre>
+
+<h3>Ou simulatio function</h3>
+
+<pre><code class="r"># simulation
+# Brownian motion
+# Example from Dixit and Pindyck, 1994, pp.74-76
+# Simple mean-reverting process:% dx = nu (xbar - x) dt + sigma dz
+#----------------------------------------------------------------------
+# generate a function for simulation
+OU.sim &lt;- function(para = c(0.01, 200, 1), x0= 1, periods=100){
+#  periods=100; #Number of periods
+theta = para[1]; # speed of reversion
+mu = para[2];
+sigma = para[3]; # sigma in monthly terms
+# theta = 1
+sigma2 = sigma * sqrt((1-exp(-2*theta))/(2*theta));   # dt=1;
+x= as.vector(rep(0, periods))  # all zero, 100 vector
+epsilon=rnorm(periods)
+x[1]= mu; # Starting value of first row of x
+for (i in 2:periods){
+  x[i] = x[i-1] + mu*(1-exp(-theta)) + x[i-1]*(exp(-theta)-1) + sigma2*epsilon[i-1];
+}
+return(x) 
+}
+</code></pre>
+
+<h3>Generate simulation price matrix 1000*5</h3>
+
+<pre><code class="r">priceSimulation &lt;- matrix(nrow=1000,ncol=5)
+for(i in 1:5){
+     priceSimulation[,i]&lt;-OU.sim(dfparaPrMat[1:3,i],x0 = dfparaPrMat[2,i],periods=1000)   
+} 
+priceSimulation&lt;-data.frame(priceSimulation)
+names(priceSimulation)&lt;-names(price)[-1]
+head(priceSimulation)
+</code></pre>
+
+<pre><code>##      Wheat    Durum   Barley   Canola     Peas
+## 1 6.067917 6.156875 3.865305 11.41695 6.896019
+## 2 6.308254 5.919090 3.956971 10.95984 6.959166
+## 3 6.244645 6.428478 3.815173 10.71225 6.999995
+## 4 6.078139 5.728197 3.465643 10.75652 7.418278
+## 5 6.417938 5.886690 3.324209 10.37819 8.244963
+## 6 6.359347 5.472061 3.323214 10.12206 7.966186
+</code></pre>
+
+<pre><code class="r">write.table(priceSimulation,&quot;priceSimulation.csv&quot;, col.names = TRUE,row.names = FALSE, sep=&quot;,&quot;, )
+</code></pre>
+
+<h2>Simulate the revenue</h2>
+
+<p>Match the yield and price matrix by the crop names</p>
+
+<p>yield: Barley   Canola    Durum     Peas    Wheat</p>
+
+<p>price: Wheat  Durum Barley Canola  Peas</p>
+
+<pre><code class="r">yieldSimulation &lt;- rdata[, c(&quot;Wheat&quot;,  &quot;Durum&quot;, &quot;Barley&quot;, &quot;Canola&quot;,  &quot;Peas&quot; )]
+head(yieldSimulation)
+</code></pre>
+
+<pre><code>##      Wheat    Durum   Barley   Canola     Peas
+## 1 49.69005 51.74598 67.23468 44.88336 38.57649
+## 2 45.44636 55.91824 58.10065 45.65925 42.91867
+## 3 46.42476 52.62714 63.71500 45.51898 44.11384
+## 4 40.65980 42.26237 52.96774 30.43134 37.70667
+## 5 41.97801 44.88393 56.18855 33.13457 35.75823
+## 6 52.60466 61.06970 70.41794 38.92241 58.05929
+</code></pre>
+
+<pre><code class="r">revSimulation&lt;-yieldSimulation*priceSimulation
+head(revSimulation)
+</code></pre>
+
+<pre><code>##      Wheat    Durum   Barley   Canola     Peas
+## 1 301.5151 318.5936 259.8826 512.4309 266.0242
+## 2 286.6872 330.9851 229.9026 500.4182 298.6782
+## 3 289.9061 338.3124 243.0837 487.6109 308.7967
+## 4 247.1359 242.0872 183.5673 327.3354 279.7186
+## 5 269.4123 264.2178 186.7825 343.8767 294.8253
+## 6 334.5313 334.1771 234.0139 393.9750 462.5111
+</code></pre>
+
+</body>
+
+</html>

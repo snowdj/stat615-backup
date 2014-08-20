@@ -11,13 +11,13 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : STAT 615 - Advanced Bayesian Methods
-tagline: Course materials
+title : Farm model - AB and SK
+tagline: Project materials
 author :
-  name : Jarad Niemi
-  email : niemi@iastate.edu
-  github : jarad
-  twitter : NiemiSTAT
+  name : snowdj
+  email : snowdj@gmail.com
+  github : snowdj
+  twitter : 
   feedburner : 
 
 # The production_url is only used when full-domain names are needed
@@ -85,7 +85,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : stat615
+      short_name : snowdj
     livefyre :
       site_id : 123
     intensedebate :
@@ -103,7 +103,7 @@ JB :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-37794201-2'
+        tracking_id : ''
     getclicky :
       site_id : 
     mixpanel :
@@ -118,7 +118,7 @@ JB :
   # Set 'provider' to false to turn sharing off globally.
   #
   sharing :
-    provider : false
+    provider : tweet
     
   # Settings for all other include helpers can be defined by creating 
   # a hash with key named for the given helper. ex:

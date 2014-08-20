@@ -1,18 +1,15 @@
 ---
 layout: page
-title: STAT 615
-tagline: Advanced Bayesian Methods
+title: Farm Model
+tagline: Farm Model for SK and AB
 ---
 {% include JB/setup %}
 
 
 
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Bayes_icon.svg/200px-Bayes_icon.svg.png" align="right" />
-Instructor: [Jarad Niemi](http://jarad.me). This website is designed to hosts course materials for [STAT 615 - Advanced Bayesian Methods](http://catalog.iastate.edu/showcourse/?code=STAT-615&edition=2013-14) at [Iowa State University](http://www.iastate.edu). This course meets
+This website is designed to host project materials for [A farm model](http://snowdj.github.io/stat615) 
 
-- TR 11-12:20 Lagomarcino W262
-
-Recent posts for material relevant to STAT 615:
+Recent posts for material relevant to the project:
 
 <ul class="posts">
   {% for post in site.posts %}
@@ -20,10 +17,14 @@ Recent posts for material relevant to STAT 615:
   {% endfor %}
 </ul>
 
-### Course links
+### Project links
 
-- [Readings](readings.html)
-- [Homework](homework.html)
+- [Data preprocess](html/load.html)
+- [data exploratory analysis](html/clean.html)
+- [data simulatoin analysis](html/simulation.html)
+- [SK simulatoin analysis](html/sksimulation.html)
+- [SK slide](slide/index.html)
+- [SK model](slide/skmodel.html)
 
 
 
