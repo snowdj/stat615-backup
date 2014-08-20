@@ -57,6 +57,91 @@
           with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
           and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
         </p>
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { 
+      Macros: {
+        1: '{\\bf 1}',
+        DP: '{\\textrm{DP}}',
+        dirp: '{\\textrm{DP}}',
+        CRP: '{\\textrm{CRP}}',
+        crp: '{\\textrm{CRP}}',
+        Uni: '{\\textrm{Uni}}',
+        unif: '{\\textrm{Uni}}',
+        Norm: '{\\textrm{Normal}}',
+        Dir: '{\\textrm{Dir}}',
+        dir: '{\\textrm{Dir}}',
+        Beta: '{\\textrm{Beta}}',
+        betarv: '{\\textrm{Beta}}',
+        lmodel: '{\\textrm{LM}}',
+        Bern: '{\\textrm{Bern}}',
+        gammarv: '{\\textrm{Gamma}}',
+        simiid: '{\\stackrel{\\scriptscriptstyle \\textrm{iid}}{\\sim}}',
+        Mult: '{\\textrm{Mult}}',
+        mult: '{\\textrm{Mult}}',
+        Cat: '{\\textrm{Cat}}',
+        Exp: '{\\textrm{Exp}}',
+        E: '{\\mathbb{E}}',
+        var: '{\\mathbb{Var}}',
+        P: '{\\mathbb{P}}',
+        deq: '{\\stackrel{\\scriptscriptstyle d}{=}}',
+        Cov: '{\\bf Cov}',
+        Yscr: '{\\mathcal{Y}}',
+        Xscr: '{\\mathcal{X}}',
+        Zscr: '{\\mathcal{Z}}',
+        Lscr: '{\\mathcal{L}}',
+        Cscr: '{\\mathcal{C}}',
+        Ascr: '{\\mathcal{A}}',
+        utheta: '{\\underline{\\theta}}',
+        argmin: '{\\textrm{argmin}}',
+        gem: '{\\textrm{GEM}}',
+        part: '{\\rho}',
+        RR: '{\\mathbb{R}}',
+        ZZ: '{\\mathbb{Z}}',
+        sa: '{\\mathcal{F}}',
+        ud: '{\\textrm{d}}',
+        rhot: '{\\rho}',
+        rhop: "{\\rho'}",
+        partstrength: 's',
+        randindex: '{\\textrm{rand}}',
+        bold: ['{\\bf #1}', 1],
+        transp: ['{#1}^{\\textrm{T}}', 2],
+        dotprod: ['\\langle #1, #2\\rangle', 2],
+        normof: ['\\| #1\\|', 1]
+      },
+      equationNumbers: { autoNumber: "AMS" },
+       extensions: ["autobold.js"]
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
       </footer>
 
     </div>
